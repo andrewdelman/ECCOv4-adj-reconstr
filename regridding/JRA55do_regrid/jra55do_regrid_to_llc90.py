@@ -8,18 +8,23 @@ from os.path import join,expanduser
 import glob
 
 
+## Path and fileform (start of filenames) for JRA55-do 1/4-degree river discharge data
 source_filepath = join('/nobackup','adelman','JRA55-do','friver','daily')
 source_fileform = 'friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_'
 # source_fileform = 'friver_weekly-JRA55-do-1-6-0_gr_'
 source_filepathform = join(source_filepath,source_fileform)
 source_files = glob.glob(source_filepathform+'1985*.nc')
 
+## Path and fileform for output JRA55-do river discharge data on ECCO LLC90 grid
 output_filepath = join('/nobackup','adelman','JRA55-do','friver','llc90_grid','daily')
 output_fileform = 'friver_daily-JRA55-do-1-6-0_llc90grid_'
 output_filepathform = join(output_filepath,output_fileform)
 
+## File used to define land/sea mask in JRA55-do grid (daily data throughout the year is used, 
+## to account for seasonal variation in location of river discharge in icy locations)
 source_mask_file = join('/nobackup','adelman','JRA55-do','friver','daily','friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20230101-20231231.nc')
 
+## Filename of ECCO LLC90 grid file
 ECCO_grid_filepath = join('/nobackup','adelman','LLC90','grid')
 ECCO_grid_file = glob.glob(join(ECCO_grid_filepath,'*.nc'))[0]
 

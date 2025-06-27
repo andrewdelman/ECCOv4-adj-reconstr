@@ -6,20 +6,24 @@ from os.path import join,expanduser
 import glob
 
 
+## Path and fileform (start of filenames) for source ERA5 data
 # source_filepath = join(expanduser('~'),'Downloads','ERA5','weekly')
 source_filepath = join('/nobackup','adelman','ERA5','weekly')
 source_fileform = 'era5_sflux_weekly_'
 source_filepathform = join(source_filepath,source_fileform)
 source_files = glob.glob(source_filepathform+'2023.nc')
 
+## Path and fileform for output ERA5 data on LLC90 grid
 # output_filepath = join(expanduser('~'),'Downloads','ERA5','weekly','llc90_grid')
 output_filepath = join('/nobackup','adelman','ERA5','weekly','llc90_grid')
 output_fileform = 'era5_sflux_weekly_llc90grid_'
 output_filepathform = join(output_filepath,output_fileform)
 
+## Land/sea mask file for ERA5 (this code uses SST on 2019-01-02, and assumes NaN values are land)
 # source_mask_file = join(expanduser('~'),'Downloads','ERA5','grid','era5_sst_20190102T00.nc')
 source_mask_file = join('/nobackup','adelman','ERA5','grid','era5_sst_20190102T00.nc')
 
+## Path and file name for ECCO LLC90 grid file
 # ECCO_grid_filepath = join(expanduser('~'),'Downloads','ECCO_V4r4_PODAAC','ECCO_L4_GEOMETRY*')
 ECCO_grid_filepath = join('/nobackup','adelman','LLC90','grid')
 ECCO_grid_file = glob.glob(join(ECCO_grid_filepath,'*.nc'))[0]

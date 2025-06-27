@@ -11,15 +11,18 @@ sys.path.append(join('home5','adelman'))
 from weekly_avg_jra55do_fcn import *
 
 
+## Path and fileform (start of filenames) for daily JRA55-do data
 source_filepath = join('/nobackup','adelman','JRA55-do','friver','daily')
 source_fileform = 'friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_'
 source_filepathform = join(source_filepath,source_fileform)
 
+## Path and fileform for output weekly JRA55-do data
 output_filepath = join('/nobackup','adelman','JRA55-do','friver','weekly')
 output_fileform = 'friver_weekly-JRA55-do-1-6-0_gr_'
 
 output_filepathform = join(output_filepath,output_fileform)
 
+## Year range to process (unlike usual Python convention, end_year is included in the range)
 start_year = 1980
 end_year = 1999
 

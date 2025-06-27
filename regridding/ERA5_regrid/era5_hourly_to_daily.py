@@ -11,18 +11,19 @@ import dask.array as da
 import multiprocessing
 from daily_avg_era5_fcn import *
 
+## Year range to process (unlike usual Python convention, year_last is included in the range)
 year_first = 2013
 year_last = 2018
 
 
-# source_filepath = join('/nobackup','adelman','ERA5')
-# source_fileform = 'era5_sflux_hourly_'
-source_filepath = join(expanduser('~'),'Downloads','ERA5','CentEqPac')
-source_fileform = 'era5_sflux_hourly_CentEqPac_'
+## Path and fileform (start of filenames) for hourly ERA5 data
+source_filepath = join('/nobackup','adelman','ERA5','hourly')
+source_fileform = 'era5_sflux_hourly_'
 source_filepathform = join(source_filepath,source_fileform)
 
-output_filepath = join(expanduser('~'),'Downloads','ERA5','CentEqPac','daily')
-output_fileform = 'era5_sflux_daily_CentEqPac_'
+## Path and fileform for output daily ERA5 data
+output_filepath = join('/nobackup','adelman','ERA5','daily')
+output_fileform = 'era5_sflux_daily_'
 output_filepathform = join(output_filepath,output_fileform)
 
 

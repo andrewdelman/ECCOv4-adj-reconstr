@@ -11,22 +11,25 @@ import multiprocessing
 sys.path.append(join('home5','adelman'))
 from weekly_avg_era5_fcn import *
 
+## Path and fileform (start of filenames) for daily ERA5 data
 # source_filepath = join(expanduser('~'),'Downloads','ERA5','daily')
 source_filepath = join('/nobackup','adelman','ERA5','daily')
 source_fileform = 'era5_sflux_daily_'
 source_filepathform = join(source_filepath,source_fileform)
 
+## Path and fileform for output weekly ERA5 data
 # output_filepath = join(expanduser('~'),'Downloads','ERA5','weekly')
 output_filepath = join('/nobackup','adelman','ERA5','weekly')
 output_fileform = 'era5_sflux_weekly_'
 output_filepathform = join(output_filepath,output_fileform)
 
+## Year range to process (unlike usual Python convention, end_year is included in the range)
 start_year = 2023
 end_year = 2023
 
 
 # weekly bins that agree with the weekly averages of ECCOv4r4 forcing
-weekly_bin_starts = np.arange(np.datetime64('1992-01-01','ns'),np.datetime64('2030-01-01','ns'),\
+weekly_bin_starts = np.arange(np.datetime64('1964-01-01','ns'),np.datetime64('2030-01-01','ns'),\
                               np.timedelta64(int(7*8.64e13),'ns'))
 weekly_bin_ends = weekly_bin_starts + np.timedelta64(7,'D')
 weekly_bin_centers = weekly_bin_starts + np.timedelta64(int(3.5*24),'h')
