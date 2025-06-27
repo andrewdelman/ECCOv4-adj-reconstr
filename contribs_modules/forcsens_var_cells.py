@@ -685,7 +685,9 @@ def forcsens_var_cells(inputs):
     if inputs['max_weeks_lead'] > 52:
         # load multi-year ECCO adjoint sensitivities
         sens_multiyr,_ = \
-                adj_sens_read_multiyr(curr_forc,adj_sens_loc)
+                adj_sens_read_multiyr(curr_forc,\
+                                      inputs['adj_sens_dir_multiyr'],\
+                                      adj_sens_loc)
         sens_multiyr = sens_multiyr[\
           -inputs['closest_forc_to_sens_atyears_multiyr'].shape[1]:,:,:,:]
 
@@ -693,8 +695,10 @@ def forcsens_var_cells(inputs):
     for pred_count,pred_month in enumerate(range(1,13)):
         
         # load ECCO adjoint sensitivities for current prediction month       
-        sens,_ = adj_sens_read(curr_forc,adj_sens_loc,pred_month)
-
+        sens,_ = adj_sens_read(curr_forc,\
+                               inputs['adj_sens_dir_seas'],\
+                               adj_sens_loc,\
+                               pred_month)
         sens_times_currmo = inputs['sens_time'][pred_count,:]
         closest_forc_to_sens_atyears_currmo = \
           inputs['closest_forc_to_sens_atyears'][pred_count,:,:]
